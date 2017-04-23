@@ -7,7 +7,7 @@ import asyncdispatch
 routes:
   post "/webhook":
     let data = parseJson(request.body)
-    echo($data)
+    echo(request.headers["X-GitHub-Event"])
     resp Http200, "OK"
 
 runForever()
